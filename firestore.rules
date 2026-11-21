@@ -1,0 +1,44 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. ORDERS COLLECTION
+    // গ্রাহকরা ওয়েবসাইট থেকে চেকআউট / ১-ক্লিক অর্ডার সাবমিট করতে পারবেন
+    // এডমিন প্যানেল থেকে সব অর্ডার দেখা, স্ট্যাটাস পরিবর্তন ও ডিলিট করা যাবে
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+
+    // 2. PRODUCTS COLLECTION
+    // ওয়েবসাইটের সকল ভিজিটররা প্রোডাক্ট ক্যাটালগ দেখতে পারবেন
+    // এডমিন প্যানেল থেকে নতুন ঘড়ি যোগ, স্টক পরিবর্তন ও ফ্ল্যাশ সেলে যুক্ত করা যাবে
+    match /products/{productId} {
+      allow read, write: if true;
+    }
+
+    // 3. REVIEWS COLLECTION
+    // ৩ডি কভারফ্লোতে গ্রাহকদের রিভিউ প্রদর্শিত হবে
+    // এডমিন প্যানেল থেকে নতুন রিভিউ ও ছবি যুক্ত করা যাবে
+    match /reviews/{reviewId} {
+      allow read, write: if true;
+    }
+
+    // 4. STORE SETTINGS & FLASH SALE
+    // হটলাইন, শোরুমের ঠিকানা, ডেলিভারি চার্জ ও ফ্ল্যাশ সেল কাউন্টডাউন
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    // 5. BRANDS COLLECTION
+    // নতুন ওয়াচ ব্র্যান্ড যোগ ও কন্ট্রোল
+    match /brands/{brandId} {
+      allow read, write: if true;
+    }
+
+    // Default global match
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

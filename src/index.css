@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F8FAFC;
+    color: #0F172A;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* English Brand Headers only */
+  .font-brand-title, .font-display {
+    font-family: 'Cinzel', 'Playfair Display', 'Hind Siliguri', serif;
+  }
+
+  /* High-legibility Bengali font class */
+  .font-bangla {
+    font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+  }
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Glassmorphism & Light Theme Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #B48811 0%, #D4AF37 50%, #8A6409 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #F5DC9A 0%, #D4AF37 50%, #997B22 100%);
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #F5DC9A 0%, #D4AF37 50%, #997B22 100%);
+  color: #07090E;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.gold-button:hover {
+  background: linear-gradient(135deg, #FFF5D6 0%, #F5DC9A 50%, #D4AF37 100%);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.crimson-button {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.crimson-button:hover {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+  transform: translateY(-2px);
+}
