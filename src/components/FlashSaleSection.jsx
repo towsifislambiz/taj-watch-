@@ -29,7 +29,7 @@ export default function FlashSaleSection() {
   }, []);
 
   const activeFlashProducts = products.filter((p) => p.isFlashSale);
-  const displayProducts = activeFlashProducts.length > 0 ? activeFlashProducts.slice(0, 4) : products.slice(0, 4);
+  const displayProducts = activeFlashProducts.length > 0 ? activeFlashProducts : products.slice(0, 4);
 
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -97,8 +97,8 @@ export default function FlashSaleSection() {
           </div>
         </div>
 
-        {/* 4 Clean Minimal Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+        {/* Clean Responsive Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
           {displayProducts.map((product) => (
             <ProductCard key={`flash-${product.id}`} product={product} />
           ))}
