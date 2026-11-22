@@ -26,11 +26,11 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewCount: 68,
     stock: 7,
-    image: '/assets/products/ap-tourbillon-tiffany.png',
+    image: '/assets/products/ap-tourbillon-tiffany.webp',
     gallery: [
-      '/assets/products/ap-tourbillon-tiffany.png',
-      '/assets/products/ap-tourbillon-steel-blue.png',
-      '/assets/products/ap-tourbillon-black.png',
+      '/assets/products/ap-tourbillon-tiffany.webp',
+      '/assets/products/ap-tourbillon-steel-blue.webp',
+      '/assets/products/ap-tourbillon-black.webp',
     ],
     colors: [
       { name: 'Tiffany Sky Blue', nameBn: 'টিফানি স্কাই ব্লু', hex: '#0ABAB5' },
@@ -65,10 +65,10 @@ export const PRODUCTS = [
     rating: 5.0,
     reviewCount: 54,
     stock: 5,
-    image: '/assets/products/ap-tourbillon-rose.png',
+    image: '/assets/products/ap-tourbillon-rose.webp',
     gallery: [
-      '/assets/products/ap-tourbillon-rose.png',
-      '/assets/products/ap-tourbillon-two-tone.png',
+      '/assets/products/ap-tourbillon-rose.webp',
+      '/assets/products/ap-tourbillon-two-tone.webp',
     ],
     colors: [
       { name: 'Rose Gold / Silver', nameBn: '১৮ ক্যারেট রোজ গোল্ড ও সিলভার', hex: '#B76E79' },
@@ -102,10 +102,10 @@ export const PRODUCTS = [
     reviewCount: 42,
     stock: 0,
     inStock: false,
-    image: '/assets/products/ap-skeleton-gunmetal.png',
+    image: '/assets/products/ap-skeleton-gunmetal.webp',
     gallery: [
-      '/assets/products/ap-skeleton-gunmetal.png',
-      '/assets/products/ap-tourbillon-black.png',
+      '/assets/products/ap-skeleton-gunmetal.webp',
+      '/assets/products/ap-tourbillon-black.webp',
     ],
     colors: [
       { name: 'Titanium Gunmetal', nameBn: 'টাইটানিয়াম গানমেটাল গ্রে', hex: '#4B5563' },
@@ -138,11 +138,11 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 39,
     stock: 8,
-    image: '/assets/products/ap-royal-oak-emerald.png',
+    image: '/assets/products/ap-royal-oak-emerald.webp',
     gallery: [
-      '/assets/products/ap-royal-oak-emerald.png',
-      '/assets/products/ap-royal-oak-grey.png',
-      '/assets/products/ap-royal-oak-black.png',
+      '/assets/products/ap-royal-oak-emerald.webp',
+      '/assets/products/ap-royal-oak-grey.webp',
+      '/assets/products/ap-royal-oak-black.webp',
     ],
     colors: [
       { name: 'Emerald Green', nameBn: 'এমারেল্ড গ্রিন সানবার্স্ট', hex: '#059669' },
@@ -179,11 +179,11 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewCount: 76,
     stock: 6,
-    image: '/assets/products/ap-chrono-rose-choc.png',
+    image: '/assets/products/ap-chrono-rose-choc.webp',
     gallery: [
-      '/assets/products/ap-chrono-rose-choc.png',
-      '/assets/products/ap-offshore-chocolate.png',
-      '/assets/products/ap-offshore-arabic.png',
+      '/assets/products/ap-chrono-rose-choc.webp',
+      '/assets/products/ap-offshore-chocolate.webp',
+      '/assets/products/ap-offshore-arabic.webp',
     ],
     colors: [
       { name: 'Chocolate & Rose', nameBn: 'রোজ গোল্ড কেস ও চকলেট মেগা টেপিসারি', hex: '#78350F' },
@@ -217,10 +217,10 @@ export const PRODUCTS = [
     rating: 5.0,
     reviewCount: 63,
     stock: 5,
-    image: '/assets/products/ap-offshore-rose-gold.png',
+    image: '/assets/products/ap-offshore-rose-gold.webp',
     gallery: [
-      '/assets/products/ap-offshore-rose-gold.png',
-      '/assets/products/ap-offshore-chocolate.png',
+      '/assets/products/ap-offshore-rose-gold.webp',
+      '/assets/products/ap-offshore-chocolate.webp',
     ],
     colors: [
       { name: 'Rose Gold / Black Ceramic', nameBn: 'রোজ গোল্ড ও ব্ল্যাক সিরামিক বেজেল', hex: '#997B22' },
@@ -253,10 +253,10 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 45,
     stock: 9,
-    image: '/assets/products/ap-chrono-steel-blue.png',
+    image: '/assets/products/ap-chrono-steel-blue.webp',
     gallery: [
-      '/assets/products/ap-chrono-steel-blue.png',
-      '/assets/products/ap-chrono-grey-blue.png',
+      '/assets/products/ap-chrono-steel-blue.webp',
+      '/assets/products/ap-chrono-grey-blue.webp',
     ],
     colors: [
       { name: 'Steel Deep Blue', nameBn: 'সিলভার স্টিল ও ডিপ ওশান ব্লু', hex: '#1D4ED8' },
@@ -292,10 +292,10 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewCount: 88,
     stock: 11,
-    image: '/assets/products/rado-captain-cook.png',
+    image: '/assets/products/rado-captain-cook.webp',
     gallery: [
-      '/assets/products/rado-captain-cook.png',
-      '/assets/products/seiko-5-gmt-diver.png',
+      '/assets/products/rado-captain-cook.webp',
+      '/assets/products/seiko-5-gmt-diver.webp',
     ],
     colors: [
       { name: 'Anthracite Sunburst Grey', nameBn: 'সানবার্স্ট স্মোকি গ্রে', hex: '#6B7280' },
@@ -328,10 +328,10 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 52,
     stock: 7,
-    image: '/assets/products/seiko-5-gmt-diver.png',
+    image: '/assets/products/seiko-5-gmt-diver.webp',
     gallery: [
-      '/assets/products/seiko-5-gmt-diver.png',
-      '/assets/products/rado-captain-cook.png',
+      '/assets/products/seiko-5-gmt-diver.webp',
+      '/assets/products/rado-captain-cook.webp',
     ],
     colors: [
       { name: 'Batman Blue/Black', nameBn: 'ব্যাটম্যান ব্লু ও ব্ল্যাক ডুয়াল টোন', hex: '#1E40AF' },
@@ -366,10 +366,10 @@ export const PRODUCTS = [
     rating: 5.0,
     reviewCount: 47,
     stock: 6,
-    image: '/assets/products/longines-master-leather.png',
+    image: '/assets/products/longines-master-leather.webp',
     gallery: [
-      '/assets/products/longines-master-leather.png',
-      '/assets/products/longines-conquest-champagne.png',
+      '/assets/products/longines-master-leather.webp',
+      '/assets/products/longines-conquest-champagne.webp',
     ],
     colors: [
       { name: 'Rose Gold / Dark Brown', nameBn: 'রোজ গোল্ড ও চকলেট লেদার', hex: '#854D0E' },
@@ -402,10 +402,10 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 36,
     stock: 9,
-    image: '/assets/products/longines-conquest-champagne.png',
+    image: '/assets/products/longines-conquest-champagne.webp',
     gallery: [
-      '/assets/products/longines-conquest-champagne.png',
-      '/assets/products/longines-conquest-black.png',
+      '/assets/products/longines-conquest-champagne.webp',
+      '/assets/products/longines-conquest-black.webp',
     ],
     colors: [
       { name: 'Champagne Gold', nameBn: 'শ্যাম্পেন সানবার্স্ট গোল্ড', hex: '#EAB308' },
@@ -439,9 +439,9 @@ export const PRODUCTS = [
     rating: 4.7,
     reviewCount: 94,
     stock: 15,
-    image: '/assets/products/bestwin-octagon-steel.png',
+    image: '/assets/products/bestwin-octagon-steel.webp',
     gallery: [
-      '/assets/products/bestwin-octagon-steel.png',
+      '/assets/products/bestwin-octagon-steel.webp',
     ],
     colors: [
       { name: 'Brushed Steel / Gold Trim', nameBn: 'ব্রাশড স্টিল ও গোল্ড অ্যাকসেন্ট', hex: '#64748B' },
@@ -476,10 +476,10 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewCount: 65,
     stock: 8,
-    image: '/assets/products/clock-diling-wooden.png',
+    image: '/assets/products/clock-diling-wooden.webp',
     gallery: [
-      '/assets/products/clock-diling-wooden.png',
-      '/assets/products/clock-citisun-3d.png',
+      '/assets/products/clock-diling-wooden.webp',
+      '/assets/products/clock-citisun-3d.webp',
     ],
     colors: [
       { name: 'Teak Wooden Brown', nameBn: 'বার্মাটিক উডেন ব্রাউন ট্রিম', hex: '#78350F' },
@@ -510,10 +510,10 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewCount: 51,
     stock: 12,
-    image: '/assets/products/clock-citisun-3d.png',
+    image: '/assets/products/clock-citisun-3d.webp',
     gallery: [
-      '/assets/products/clock-citisun-3d.png',
-      '/assets/products/clock-diling-wooden.png',
+      '/assets/products/clock-citisun-3d.webp',
+      '/assets/products/clock-diling-wooden.webp',
     ],
     colors: [
       { name: 'Rose Gold & White', nameBn: 'রোজ গোল্ড থ্রি-ডি সংখ্যা ও হোয়াইট', hex: '#D4AF37' },
@@ -550,14 +550,14 @@ export const STORE_SETTINGS = {
 };
 
 export const DEFAULT_BRANDS = [
-  { id: 'b-ap', name: 'Audemars Piguet', nameBn: 'ওডেমার্স পিগে', origin: 'Switzerland', logo: '/assets/brand/logo.jpeg', featured: true },
-  { id: 'b-rado', name: 'RADO', nameBn: 'রাডো', origin: 'Switzerland', logo: '/assets/brand/logo.jpeg', featured: true },
-  { id: 'b-seiko', name: 'Seiko', nameBn: 'সেইকো', origin: 'Japan', logo: '/assets/brand/logo.jpeg', featured: true },
-  { id: 'b-longines', name: 'Longines', nameBn: 'লঞ্জিন্স', origin: 'Switzerland', logo: '/assets/brand/logo.jpeg', featured: true },
-  { id: 'b-bestwin', name: 'BESTWIN', nameBn: 'বেস্টউইন', origin: 'International Quartz', logo: '/assets/brand/logo.jpeg', featured: false },
-  { id: 'b-naviforce', name: 'Naviforce', nameBn: 'ন্যাভিফোর্স', origin: 'Japan Movement', logo: '/assets/brand/logo.jpeg', featured: true },
-  { id: 'b-diling', name: 'DILING', nameBn: 'ডাইলিং ক্লক', origin: 'Executive Wall Clocks', logo: '/assets/brand/logo.jpeg', featured: false },
-  { id: 'b-citisun', name: 'CITISUN', nameBn: 'সিটিসান', origin: '3D Luxury Clocks', logo: '/assets/brand/logo.jpeg', featured: false },
+  { id: 'b-ap', name: 'Audemars Piguet', nameBn: 'ওডেমার্স পিগে', origin: 'Switzerland', logo: '/assets/brand/logo.webp', featured: true },
+  { id: 'b-rado', name: 'RADO', nameBn: 'রাডো', origin: 'Switzerland', logo: '/assets/brand/logo.webp', featured: true },
+  { id: 'b-seiko', name: 'Seiko', nameBn: 'সেইকো', origin: 'Japan', logo: '/assets/brand/logo.webp', featured: true },
+  { id: 'b-longines', name: 'Longines', nameBn: 'লঞ্জিন্স', origin: 'Switzerland', logo: '/assets/brand/logo.webp', featured: true },
+  { id: 'b-bestwin', name: 'BESTWIN', nameBn: 'বেস্টউইন', origin: 'International Quartz', logo: '/assets/brand/logo.webp', featured: false },
+  { id: 'b-naviforce', name: 'Naviforce', nameBn: 'ন্যাভিফোর্স', origin: 'Japan Movement', logo: '/assets/brand/logo.webp', featured: true },
+  { id: 'b-diling', name: 'DILING', nameBn: 'ডাইলিং ক্লক', origin: 'Executive Wall Clocks', logo: '/assets/brand/logo.webp', featured: false },
+  { id: 'b-citisun', name: 'CITISUN', nameBn: 'সিটিসান', origin: '3D Luxury Clocks', logo: '/assets/brand/logo.webp', featured: false },
 ];
 
 export const CUSTOMER_REVIEWS = [
@@ -575,7 +575,7 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-cyan-500 to-blue-600',
     comment: 'ভাই ঘড়িটা হাতে পাওয়ার পর সত্যি মুগ্ধ হয়ে গেছি! এত নিখুঁত ট্যুরবিলন খাঁচা আর ফিনিশিং ভাবতেই পারিনি। ডেলিভারি মাত্র ২৪ ঘণ্টায় পেয়েছি। ১০০% রিকমেন্ডেড!',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/products/ap-tourbillon-tiffany.png',
+    wristImage: '/assets/products/ap-tourbillon-tiffany.webp',
   },
   {
     id: 2,
@@ -591,7 +591,7 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-emerald-500 to-teal-600',
     comment: 'রাডোর মুভিং নোঙ্গর লোগোটা দেখতে অসাধারণ লাগে। প্যাকেজিং অনেক লাক্সারি ছিল, বক্স ও ওয়ারেন্টি কার্ড সব পেয়েছি। Taj Watch-এর সার্ভিস এক কথায় সেরা!',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/products/rado-captain-cook.png',
+    wristImage: '/assets/products/rado-captain-cook.webp',
   },
   {
     id: 3,
@@ -607,7 +607,7 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-amber-500 to-orange-600',
     comment: 'অফিসের মিটিংয়ে পরার জন্য এমন একটা ঘড়িই খুঁজছিলাম। খাঁটি লেদার স্ট্র্যাপ এবং রোজ গোল্ড পলিশ দারুণ সাইন দেয়। ক্যাশ অন ডেলিভারিতে চেক করে নিতে পেরে নিশ্চিন্ত হয়েছি।',
     avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/products/longines-master-leather.png',
+    wristImage: '/assets/products/longines-master-leather.webp',
   },
   {
     id: 4,
@@ -623,7 +623,7 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-amber-600 to-yellow-500',
     comment: 'লিভিং রুমের জন্য দেয়াল ঘড়িটা নিয়েছিলাম। ঘরের দেয়ালটায় একদম রাজকীয় অ্যাম্বিয়েন্স চলে এসেছে। কোনো টিকটিক শব্দ নেই আর টেম্পারেচার ডিসপ্লেটা খুবই প্রিমিয়াম।',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/banners/banner-wall-clock.jpg',
+    wristImage: '/assets/banners/banner-wall-clock.webp',
   },
   {
     id: 5,
@@ -639,7 +639,7 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-purple-500 to-indigo-600',
     comment: 'স্কেলিটন মুভমেন্ট ভেতর থেকে গিয়ারগুলো ঘুরতে দেখা যায় যা সত্যিই অদ্ভুত সুন্দর। প্রিমিয়াম মেটাল স্ট্র্যাপ ও বাটারফ্লাই লক খুবই কমফোর্টেবল। তাজ ওয়াচকে ধন্যবাদ!',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/products/ap-skeleton-gunmetal.png',
+    wristImage: '/assets/products/ap-skeleton-gunmetal.webp',
   },
   {
     id: 6,
@@ -655,7 +655,7 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-blue-500 to-cyan-600',
     comment: 'ব্লু ও ব্ল্যাক ডুয়াল কালার বেজেলটা হাতে পরলে সবার নজর কাড়ে। হেভি ওয়েট সলিড স্টেইনলেস স্টিল ও ওয়াটারপ্রুফ কোয়ালিটি নিয়ে কোনো সন্দেহ নেই। অসাধারণ সার্ভিস!',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/products/seiko-5-gmt-diver.png',
+    wristImage: '/assets/products/seiko-5-gmt-diver.webp',
   },
   {
     id: 7,
@@ -671,6 +671,6 @@ export const CUSTOMER_REVIEWS = [
     accentGradient: 'from-rose-500 to-pink-600',
     comment: 'সোনালী থ্রিডি ভাসমান সংখ্যাগুলো দূর থেকেই স্পষ্ট জ্বলজ্বল করে। প্যাকেজিং এত মজবুত ছিল যে কাঁচের ঘড়ি হলেও কোনো ক্ষতি হয়নি। বন্ধুদের সবাই খুব প্রশংসা করেছে!',
     avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80',
-    wristImage: '/assets/products/clock-citisun-3d.png',
+    wristImage: '/assets/products/clock-citisun-3d.webp',
   },
 ];

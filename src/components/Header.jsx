@@ -41,39 +41,23 @@ export default function Header({ searchQuery, setSearchQuery }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      {/* 1. Top Ribbon: Responsive across mobile & desktop */}
-      <div className="bg-[#FFFDF7] border-b border-amber-100 py-1 px-3 sm:px-4 text-[11px] sm:text-xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-gray-700 gap-2">
-          <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-200 shadow-sm">
+      {/* 1. Top Minimal Ribbon */}
+      <div className="bg-gray-50 border-b border-gray-100 py-1 px-3 sm:px-4 text-[10px] sm:text-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-gray-700">
+          <div className="flex items-center gap-2">
             <span className="flex items-center gap-1 font-semibold text-gray-900">
-              <Truck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-              <span>ক্যাশ অন ডেলিভারি</span>
-            </span>
-            <span className="hidden sm:flex items-center gap-1 font-medium text-gray-600">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" /> ২ বছরের ওয়ারেন্টি
-            </span>
-            <span className="hidden lg:flex items-center gap-1 font-medium text-gray-600">
-              <RefreshCw className="w-3.5 h-3.5 text-amber-600 shrink-0" /> ৭ দিনের রিপ্লেসমেন্ট
+              <Truck className="w-3 h-3 text-red-600 shrink-0" />
+              <span>ক্যাশ অন ডেলিভারি (চেক করে মূল্য দিন)</span>
             </span>
           </div>
-          <div className="flex items-center gap-3 ml-auto text-[11px] sm:text-xs">
+          <div className="flex items-center gap-3 text-[10px] sm:text-xs">
             <a
               href={`tel:${STORE_SETTINGS.hotline}`}
-              className="flex items-center gap-1 hover:text-black font-bold text-gray-950 transition-colors"
+              className="flex items-center gap-1 font-bold text-gray-950 hover:text-red-600 transition-colors"
             >
-              <PhoneCall className="w-3 h-3 text-amber-600 shrink-0" />
+              <PhoneCall className="w-3 h-3 text-red-600 shrink-0" />
               <span>{STORE_SETTINGS.hotline}</span>
-            </a>
-            <span className="text-gray-300 hidden sm:inline">|</span>
-            <a
-              href={`https://wa.me/88${STORE_SETTINGS.whatsapp}?text=Hello%20TAJ%20WATCH%2C%20I%20want%20to%20know%20more%20about%20your%20luxury%20watches`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1 text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>হোয়াটসঅ্যাপ</span>
             </a>
           </div>
         </div>
@@ -101,7 +85,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
           >
             <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden border border-amber-400 shadow-sm group-hover:border-amber-600 transition-all duration-300">
               <img
-                src="/assets/brand/logo.jpeg"
+                src="/assets/brand/logo.webp"
                 alt="TAJ WATCH Logo"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

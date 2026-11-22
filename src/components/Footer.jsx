@@ -111,7 +111,7 @@ export default function Footer() {
             >
               <div className="w-11 h-11 rounded-xl overflow-hidden border border-brand-gold/60">
                 <img
-                  src="/assets/brand/logo.jpeg"
+                  src="/assets/brand/logo.webp"
                   alt="TAJ WATCH"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />

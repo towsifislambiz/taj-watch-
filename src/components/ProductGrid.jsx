@@ -92,65 +92,30 @@ export default function ProductGrid({ activeCategory, setActiveCategory, searchQ
 
   return (
     <section id="all-products-section" className="py-12 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
-        {/* Section Title & Subtitle */}
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-widest mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            <span>EXCLUSIVE CURATED CATALOG</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-gray-950 tracking-tight">
-            সকল বিলাসবহুল ঘড়ির কালেকশন
-          </h2>
-          <p className="text-xs sm:text-sm text-gray-600 mt-2 font-sans font-medium">
-            সরাসরি সুইজারল্যান্ড ও জাপান প্রিমিয়াম ইন্সপায়ার্ড মাস্টারপিস — ক্যাশ অন ডেলিভারিতে চেক করে নিন
-          </p>
-        </div>
-
-        {/* Categories Tabs Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-          {CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 ${
-                  isActive
-                    ? 'bg-black text-white shadow-md scale-105'
-                    : 'bg-white text-gray-700 hover:text-black hover:bg-gray-100 border border-gray-200 shadow-sm'
-                }`}
-              >
-                <span>{cat.name}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Toolbar: Count & Sort */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 border-b border-gray-200 text-xs text-gray-600">
+        {/* Minimal Section Title */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 pb-3 border-b border-gray-200 gap-2">
           <div>
-            প্রদর্শিত <strong className="text-gray-950 font-bold">{displayedProducts.length}</strong> / <span className="font-bold">{filteredProducts.length}</span> টি প্রিমিয়াম ঘড়ি
-            {searchQuery && (
-              <span className="ml-2 text-red-600 font-semibold">
-                (সার্চ ফিল্টার: &quot;{searchQuery}&quot;)
-              </span>
-            )}
+            <h2 className="text-lg sm:text-2xl font-black text-gray-950 tracking-tight">
+              সকল ঘড়ির কালেকশন
+            </h2>
+            <p className="text-xs text-gray-500 mt-0.5">
+              ক্যাশ অন ডেলিভারিতে চেক করে মূল্য পরিশোধ করুন
+            </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-gray-600 font-medium">সর্ট করুন:</span>
+          <div className="flex items-center gap-2 text-xs text-gray-600">
+            <span className="text-gray-500">সর্ট:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-white text-gray-900 text-xs font-semibold rounded-lg border border-gray-300 px-3 py-1.5 focus:outline-none focus:border-amber-500 shadow-sm"
+              className="bg-white text-gray-900 text-xs font-bold rounded-lg border border-gray-300 px-2.5 py-1 focus:outline-none"
             >
-              <option value="popular">জনপ্রিয়তা (Popularity)</option>
+              <option value="popular">জনপ্রিয়</option>
               <option value="price-low">দাম: কম থেকে বেশি</option>
               <option value="price-high">দাম: বেশি থেকে কম</option>
-              <option value="discount">সর্বোচ্চ ছাড় (Discount)</option>
+              <option value="discount">সর্বোচ্চ ছাড়</option>
             </select>
           </div>
         </div>
