@@ -130,11 +130,11 @@ export function CartProvider({ children }) {
       }}
     >
       {children}
-      {/* Global Toast Pill */}
+      {/* Global Toast Pill (Smooth, lightweight, zero GPU lag) */}
       {toastMessage && (
-        <div className="fixed top-24 right-4 z-50 flex items-center gap-3 bg-brand-obsidian/95 border border-brand-gold/60 text-white px-5 py-3 rounded-xl shadow-2xl backdrop-blur-md animate-bounce">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-          <span className="text-sm font-medium">{toastMessage}</span>
+        <div className="fixed top-20 right-4 z-50 flex items-center gap-2.5 bg-slate-900/95 border border-amber-500/40 text-white px-4 py-2.5 rounded-xl shadow-xl transition-all pointer-events-none">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+          <span className="text-xs sm:text-sm font-medium">{toastMessage}</span>
         </div>
       )}
     </CartContext.Provider>

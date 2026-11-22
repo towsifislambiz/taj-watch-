@@ -132,7 +132,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
               <div className="relative">
                 <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-gray-950" />
                 {totalItemCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[9px] sm:text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center animate-pulse">
+                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[9px] sm:text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">
                     {totalItemCount}
                   </span>
                 )}
@@ -218,7 +218,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
             onClick={() => setMobileMenuOpen(false)}
             className="block text-sm font-semibold text-gray-800 hover:text-amber-600 py-1.5 border-b border-gray-100"
           >
-            ⭐ ৩ডি কভারফ্লো রিভিউ
+            ⭐ সম্মানিত গ্রাহকদের রিভিউ
           </a>
           <div className="pt-2 flex flex-col gap-2">
             <a

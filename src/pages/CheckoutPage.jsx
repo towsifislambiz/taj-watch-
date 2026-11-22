@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ShieldCheck, Truck, Lock, ArrowLeft, CheckCircle2 } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { fireConfetti } from '../utils/confetti';
 import { useCart } from '../context/CartContext';
 import { useOrder } from '../context/OrderContext';
 import { STORE_SETTINGS } from '../data/products';
@@ -69,16 +69,12 @@ export default function CheckoutPage() {
       return;
     }
 
-    try {
-      confetti({
-        particleCount: 100,
-        spread: 80,
-        origin: { y: 0.6 },
-        colors: ['#DC2626', '#F59E0B', '#10B981'],
-      });
-    } catch {
-      // ignore
-    }
+    fireConfetti({
+      particleCount: 100,
+      spread: 80,
+      origin: { y: 0.6 },
+      colors: ['#DC2626', '#F59E0B', '#10B981'],
+    });
 
     const orderPayload = {
       customerName: customerName.trim(),

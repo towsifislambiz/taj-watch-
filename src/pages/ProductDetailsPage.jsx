@@ -14,7 +14,7 @@ import {
   Plus,
   Minus,
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { fireConfetti } from '../utils/confetti';
 import { PRODUCTS, STORE_SETTINGS } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { useOrder } from '../context/OrderContext';
@@ -96,13 +96,11 @@ export default function ProductDetailsPage() {
       return;
     }
 
-    try {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-    } catch {}
+    fireConfetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
 
     const orderPayload = {
       customerName: customerName.trim(),
@@ -175,7 +173,7 @@ export default function ProductDetailsPage() {
                   </span>
                 ) : (
                   <span className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     <span>ইন স্টক ({product.stock || 5} টি)</span>
                   </span>
                 )}
@@ -388,7 +386,7 @@ export default function ProductDetailsPage() {
             {showInlineForm && !isOutOfStock && (
               <div className="p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 animate-fadeIn">
                 <h3 className="font-bold text-xs sm:text-sm text-gray-900 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-red-600" />
                   <span>ডেলিভারি ঠিকানা ও অর্ডার ফর্ম (ক্যাশ অন ডেলিভারি)</span>
                 </h3>
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, MessageCircle, PhoneCall, Home, Package, ShieldCheck } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { fireConfetti } from '../utils/confetti';
 import { useOrder } from '../context/OrderContext';
 import { STORE_SETTINGS } from '../data/products';
 
@@ -12,16 +12,12 @@ export default function OrderSuccessPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     // Fire celebratory confetti on mount
-    try {
-      confetti({
-        particleCount: 100,
-        spread: 90,
-        origin: { y: 0.5 },
-        colors: ['#DC2626', '#F59E0B', '#10B981', '#000000'],
-      });
-    } catch {
-      // ignore
-    }
+    fireConfetti({
+      particleCount: 100,
+      spread: 90,
+      origin: { y: 0.5 },
+      colors: ['#DC2626', '#F59E0B', '#10B981', '#000000'],
+    });
   }, []);
 
   const orderId = id || lastPlacedOrder?.orderId || 'TW-CONFIRMED';

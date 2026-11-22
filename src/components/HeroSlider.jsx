@@ -53,17 +53,26 @@ export default function HeroSlider() {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-black min-h-[300px] sm:min-h-[380px] lg:min-h-[420px] flex items-center shadow-md">
           
-          {/* Background Watch Photo */}
+          {/* Background Watch Photos with Buttery Smooth Hardware-Accelerated Crossfade */}
           <div className="absolute inset-0 z-0">
-            <img
-              src={slide.bannerImage}
-              alt={slide.title}
-              className="w-full h-full object-cover object-right sm:object-center transition-opacity duration-700"
-              loading="eager"
-              decoding="async"
-            />
+            {HERO_SLIDES.map((s, idx) => (
+              <div
+                key={s.id}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  idx === current ? 'opacity-100 z-0' : 'opacity-0 pointer-events-none'
+                }`}
+              >
+                <img
+                  src={s.bannerImage}
+                  alt={s.title}
+                  className="w-full h-full object-cover object-right sm:object-center"
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+            ))}
             {/* Scrim overlay for crisp minimal text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent sm:w-3/5" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent sm:w-3/5 z-10 pointer-events-none" />
           </div>
 
           {/* Clean Minimal Slide Content */}

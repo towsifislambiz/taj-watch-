@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, ShieldCheck, Truck, Lock, Plus, Minus, CheckCircle2, PhoneCall, AlertOctagon, MessageCircle } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { fireConfetti } from '../utils/confetti';
 import { useCart } from '../context/CartContext';
 import { useOrder } from '../context/OrderContext';
 import { STORE_SETTINGS } from '../data/products';
@@ -70,16 +70,12 @@ export default function OneClickOrderModal() {
       return;
     }
 
-    try {
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#DC2626', '#F59E0B', '#10B981', '#000000'],
-      });
-    } catch {
-      // ignore
-    }
+    fireConfetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#DC2626', '#F59E0B', '#10B981', '#000000'],
+    });
 
     const orderPayload = {
       customerName: customerName.trim(),
@@ -110,13 +106,13 @@ export default function OneClickOrderModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-fadeIn">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/75 flex items-center justify-center p-3 sm:p-4 animate-fadeIn">
       <div className="relative w-full max-w-lg bg-white border border-gray-200 rounded-3xl shadow-2xl overflow-hidden">
         
         {/* Modal Top Header */}
         <div className="bg-gray-50 border-b border-gray-200 px-5 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping" />
+            <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
             <h3 className="text-base sm:text-lg font-bold text-gray-900">
               ইনস্ট্যান্ট অর্ডার — <span className="text-red-600 font-extrabold">ক্যাশ অন ডেলিভারি</span>
             </h3>

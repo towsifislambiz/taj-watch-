@@ -180,7 +180,7 @@ export default function AllProductsPage({ searchQuery: globalSearchQuery, setSea
           <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-amber-500/10 rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl space-y-2 sm:space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>OFFICIAL CATALOG • {currentCategoryInfo.nameEn}</span>
             </div>

@@ -154,7 +154,7 @@ export default function ProductGrid({ activeCategory, setActiveCategory, searchQ
                   className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-black hover:bg-gray-800 text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <span>আরও {remainingCount} টি ঘড়ি দেখুন (Load More)</span>
-                  <ChevronDown className="w-4 h-4 animate-bounce" />
+                  <ChevronDown className="w-4 h-4" />
                 </button>
               ) : filteredProducts.length > INITIAL_LIMIT ? (
                 <div className="space-y-2 pt-2">

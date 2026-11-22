@@ -1,8 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, memo } from 'react';
 import { Flame, Clock } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
 import ProductCard from './ProductCard';
 import { subscribeToProducts, subscribeToFlashSaleConfig } from '../firebase/services';
+
+const formatNumber = (num) => String(num).padStart(2, '0');
+
+// Isolated Subcomponent: only this re-renders every 1s, preventing the 9 product cards from diffing every second!
+const FlashCountdownTimer = memo(function FlashCountdownTimer({ endTime }) {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const calculateTime = () => {
+      let target = new Date(endTime).getTime();
+      let diff = target - Date.now();
+
+      // If expired or invalid, set rolling daily countdown to midnight
+      if (isNaN(diff) || diff <= 0) {
+        const midnight = new Date();
+        midnight.setHours(23, 59, 59, 999);
+        diff = midnight.getTime() - Date.now();
+        if (diff <= 0) diff = 86400000;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      setTimeLeft({ hours, minutes, seconds });
+    };
+
+    calculateTime();
+    const timer = setInterval(calculateTime, 1000);
+    return () => clearInterval(timer);
+  }, [endTime]);
+
+  return (
+    <div className="flex items-center gap-1 font-mono font-bold text-xs text-white">
+      <span className="bg-red-600 px-1.5 py-0.5 rounded">{formatNumber(timeLeft.hours)}</span>
+      <span className="text-gray-400">:</span>
+      <span className="bg-red-600 px-1.5 py-0.5 rounded">{formatNumber(timeLeft.minutes)}</span>
+      <span className="text-gray-400">:</span>
+      <span className="bg-red-600 px-1.5 py-0.5 rounded">{formatNumber(timeLeft.seconds)}</span>
+    </div>
+  );
+});
 
 export default function FlashSaleSection() {
   const [products, setProducts] = useState(PRODUCTS);
@@ -28,43 +74,10 @@ export default function FlashSaleSection() {
     };
   }, []);
 
-  const activeFlashProducts = products.filter((p) => p.isFlashSale);
-  const displayProducts = activeFlashProducts.length > 0 ? activeFlashProducts : products.slice(0, 4);
-
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    isExpired: false,
-  });
-
-  // Live Countdown Timer (Always active: if expired, rolls over to midnight countdown)
-  useEffect(() => {
-    const calculateTime = () => {
-      let target = new Date(flashConfig.endTime).getTime();
-      let diff = target - Date.now();
-
-      // If expired or invalid, set rolling daily countdown to midnight
-      if (isNaN(diff) || diff <= 0) {
-        const midnight = new Date();
-        midnight.setHours(23, 59, 59, 999);
-        diff = midnight.getTime() - Date.now();
-        if (diff <= 0) diff = 86400000;
-      }
-
-      const totalSeconds = Math.floor(diff / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-      setTimeLeft({ hours, minutes, seconds, isExpired: false });
-    };
-
-    calculateTime();
-    const timer = setInterval(calculateTime, 1000);
-    return () => clearInterval(timer);
-  }, [flashConfig]);
-
-  const formatNumber = (num) => String(num).padStart(2, '0');
+  const displayProducts = useMemo(() => {
+    const active = products.filter((p) => p.isFlashSale);
+    return active.length > 0 ? active : products.slice(0, 4);
+  }, [products]);
 
   return (
     <section id="flash-sale-section" className="py-6 sm:py-8 bg-red-50/40 border-b border-red-100">
@@ -87,13 +100,7 @@ export default function FlashSaleSection() {
           <div className="flex items-center gap-1.5 text-xs text-gray-600 font-semibold self-start sm:self-auto">
             <Clock className="w-3.5 h-3.5 text-red-600" />
             <span>অফার শেষ হতে:</span>
-            <div className="flex items-center gap-1 font-mono font-bold text-xs text-white">
-              <span className="bg-red-600 px-1.5 py-0.5 rounded">{formatNumber(timeLeft.hours)}</span>
-              <span className="text-gray-400">:</span>
-              <span className="bg-red-600 px-1.5 py-0.5 rounded">{formatNumber(timeLeft.minutes)}</span>
-              <span className="text-gray-400">:</span>
-              <span className="bg-red-600 px-1.5 py-0.5 rounded">{formatNumber(timeLeft.seconds)}</span>
-            </div>
+            <FlashCountdownTimer endTime={flashConfig.endTime} />
           </div>
         </div>
 

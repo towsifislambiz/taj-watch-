@@ -29,7 +29,7 @@ export default function CartDrawer() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-black/60 backdrop-blur-sm flex justify-end animate-fadeIn">
+    <div className="fixed inset-0 z-50 overflow-hidden bg-black/75 flex justify-end animate-fadeIn">
       {/* Off-canvas panel - Clean White */}
       <div className="w-full max-w-md bg-white border-l border-gray-200 shadow-2xl flex flex-col h-full animate-slideIn">
         

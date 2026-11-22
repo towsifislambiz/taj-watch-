@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Search,
@@ -41,8 +41,11 @@ export default function SearchEngine({ searchQuery, setSearchQuery, isMobile = f
     };
   }, []);
 
-  // Instant in-memory search results powered by live products
-  const results = searchProducts(query, filterType, productsPool);
+  // Instant in-memory search results powered by live products (memoized to prevent re-computation)
+  const results = useMemo(
+    () => searchProducts(query, filterType, productsPool),
+    [query, filterType, productsPool]
+  );
 
   // Sync with parent query
   useEffect(() => {

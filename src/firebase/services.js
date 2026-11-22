@@ -149,29 +149,57 @@ export async function seedProductsIfEmpty() {
   }
 }
 
+let cachedProducts = null;
+const productListeners = new Set();
+let unsubscribeProducts = null;
+
 export function subscribeToProducts(callback) {
-  try {
-    return onSnapshot(
-      collection(db, PRODUCTS_COLLECTION),
-      (snapshot) => {
-        if (!snapshot.empty) {
-          const list = snapshot.docs.map((d) => ({
-            firestoreId: d.id,
-            ...d.data(),
-          }));
-          callback(list);
-        } else {
-          callback(PRODUCTS);
-        }
-      },
-      () => {
-        callback(PRODUCTS);
-      }
-    );
-  } catch {
-    callback(PRODUCTS);
-    return () => {};
+  productListeners.add(callback);
+  if (cachedProducts) {
+    callback(cachedProducts);
   }
+
+  if (!unsubscribeProducts) {
+    try {
+      unsubscribeProducts = onSnapshot(
+        collection(db, PRODUCTS_COLLECTION),
+        (snapshot) => {
+          if (!snapshot.empty) {
+            const list = snapshot.docs.map((d) => ({
+              firestoreId: d.id,
+              ...d.data(),
+            }));
+            cachedProducts = list;
+            productListeners.forEach((cb) => {
+              try { cb(list); } catch (e) { console.warn(e); }
+            });
+          } else {
+            cachedProducts = PRODUCTS;
+            productListeners.forEach((cb) => {
+              try { cb(PRODUCTS); } catch (e) { console.warn(e); }
+            });
+          }
+        },
+        () => {
+          cachedProducts = PRODUCTS;
+          productListeners.forEach((cb) => {
+            try { cb(PRODUCTS); } catch (e) { console.warn(e); }
+          });
+        }
+      );
+    } catch {
+      cachedProducts = PRODUCTS;
+      callback(PRODUCTS);
+    }
+  }
+
+  return () => {
+    productListeners.delete(callback);
+    if (productListeners.size === 0 && unsubscribeProducts) {
+      try { unsubscribeProducts(); } catch {}
+      unsubscribeProducts = null;
+    }
+  };
 }
 
 export async function addFirestoreProduct(productData) {
@@ -235,29 +263,57 @@ export async function seedReviewsIfEmpty() {
   }
 }
 
+let cachedReviews = null;
+const reviewListeners = new Set();
+let unsubscribeReviews = null;
+
 export function subscribeToReviews(callback) {
-  try {
-    return onSnapshot(
-      collection(db, REVIEWS_COLLECTION),
-      (snapshot) => {
-        if (!snapshot.empty) {
-          const list = snapshot.docs.map((d) => ({
-            firestoreId: d.id,
-            ...d.data(),
-          }));
-          callback(list);
-        } else {
-          callback(CUSTOMER_REVIEWS);
-        }
-      },
-      () => {
-        callback(CUSTOMER_REVIEWS);
-      }
-    );
-  } catch {
-    callback(CUSTOMER_REVIEWS);
-    return () => {};
+  reviewListeners.add(callback);
+  if (cachedReviews) {
+    callback(cachedReviews);
   }
+
+  if (!unsubscribeReviews) {
+    try {
+      unsubscribeReviews = onSnapshot(
+        collection(db, REVIEWS_COLLECTION),
+        (snapshot) => {
+          if (!snapshot.empty) {
+            const list = snapshot.docs.map((d) => ({
+              firestoreId: d.id,
+              ...d.data(),
+            }));
+            cachedReviews = list;
+            reviewListeners.forEach((cb) => {
+              try { cb(list); } catch (e) { console.warn(e); }
+            });
+          } else {
+            cachedReviews = CUSTOMER_REVIEWS;
+            reviewListeners.forEach((cb) => {
+              try { cb(CUSTOMER_REVIEWS); } catch (e) { console.warn(e); }
+            });
+          }
+        },
+        () => {
+          cachedReviews = CUSTOMER_REVIEWS;
+          reviewListeners.forEach((cb) => {
+            try { cb(CUSTOMER_REVIEWS); } catch (e) { console.warn(e); }
+          });
+        }
+      );
+    } catch {
+      cachedReviews = CUSTOMER_REVIEWS;
+      callback(CUSTOMER_REVIEWS);
+    }
+  }
+
+  return () => {
+    reviewListeners.delete(callback);
+    if (reviewListeners.size === 0 && unsubscribeReviews) {
+      try { unsubscribeReviews(); } catch {}
+      unsubscribeReviews = null;
+    }
+  };
 }
 
 export async function addFirestoreReview(reviewData) {
@@ -299,23 +355,47 @@ export async function getFirestoreStoreSettings() {
   }
 }
 
+let cachedStoreSettings = null;
+const settingsListeners = new Set();
+let unsubscribeSettings = null;
+
 export function subscribeToStoreSettings(callback) {
-  try {
-    return onSnapshot(
-      doc(db, SETTINGS_COLLECTION, 'general'),
-      (docSnap) => {
-        if (docSnap.exists()) {
-          callback({ ...STORE_SETTINGS, ...docSnap.data() });
-        } else {
-          callback(STORE_SETTINGS);
-        }
-      },
-      () => callback(STORE_SETTINGS)
-    );
-  } catch {
-    callback(STORE_SETTINGS);
-    return () => {};
+  settingsListeners.add(callback);
+  if (cachedStoreSettings) {
+    callback(cachedStoreSettings);
   }
+
+  if (!unsubscribeSettings) {
+    try {
+      unsubscribeSettings = onSnapshot(
+        doc(db, SETTINGS_COLLECTION, 'general'),
+        (docSnap) => {
+          const data = docSnap.exists() ? { ...STORE_SETTINGS, ...docSnap.data() } : STORE_SETTINGS;
+          cachedStoreSettings = data;
+          settingsListeners.forEach((cb) => {
+            try { cb(data); } catch (e) { console.warn(e); }
+          });
+        },
+        () => {
+          cachedStoreSettings = STORE_SETTINGS;
+          settingsListeners.forEach((cb) => {
+            try { cb(STORE_SETTINGS); } catch (e) { console.warn(e); }
+          });
+        }
+      );
+    } catch {
+      cachedStoreSettings = STORE_SETTINGS;
+      callback(STORE_SETTINGS);
+    }
+  }
+
+  return () => {
+    settingsListeners.delete(callback);
+    if (settingsListeners.size === 0 && unsubscribeSettings) {
+      try { unsubscribeSettings(); } catch {}
+      unsubscribeSettings = null;
+    }
+  };
 }
 
 export async function updateFirestoreStoreSettings(settingsData) {
@@ -357,23 +437,47 @@ export async function getFlashSaleConfig() {
   }
 }
 
+let cachedFlashConfig = null;
+const flashConfigListeners = new Set();
+let unsubscribeFlashConfig = null;
+
 export function subscribeToFlashSaleConfig(callback) {
-  try {
-    return onSnapshot(
-      doc(db, SETTINGS_COLLECTION, 'flash_sale'),
-      (docSnap) => {
-        if (docSnap.exists()) {
-          callback({ ...DEFAULT_FLASH_SALE_CONFIG, ...docSnap.data() });
-        } else {
-          callback(DEFAULT_FLASH_SALE_CONFIG);
-        }
-      },
-      () => callback(DEFAULT_FLASH_SALE_CONFIG)
-    );
-  } catch {
-    callback(DEFAULT_FLASH_SALE_CONFIG);
-    return () => {};
+  flashConfigListeners.add(callback);
+  if (cachedFlashConfig) {
+    callback(cachedFlashConfig);
   }
+
+  if (!unsubscribeFlashConfig) {
+    try {
+      unsubscribeFlashConfig = onSnapshot(
+        doc(db, SETTINGS_COLLECTION, 'flash_sale'),
+        (docSnap) => {
+          const data = docSnap.exists() ? { ...DEFAULT_FLASH_SALE_CONFIG, ...docSnap.data() } : DEFAULT_FLASH_SALE_CONFIG;
+          cachedFlashConfig = data;
+          flashConfigListeners.forEach((cb) => {
+            try { cb(data); } catch (e) { console.warn(e); }
+          });
+        },
+        () => {
+          cachedFlashConfig = DEFAULT_FLASH_SALE_CONFIG;
+          flashConfigListeners.forEach((cb) => {
+            try { cb(DEFAULT_FLASH_SALE_CONFIG); } catch (e) { console.warn(e); }
+          });
+        }
+      );
+    } catch {
+      cachedFlashConfig = DEFAULT_FLASH_SALE_CONFIG;
+      callback(DEFAULT_FLASH_SALE_CONFIG);
+    }
+  }
+
+  return () => {
+    flashConfigListeners.delete(callback);
+    if (flashConfigListeners.size === 0 && unsubscribeFlashConfig) {
+      try { unsubscribeFlashConfig(); } catch {}
+      unsubscribeFlashConfig = null;
+    }
+  };
 }
 
 export async function updateFlashSaleConfig(configData) {
