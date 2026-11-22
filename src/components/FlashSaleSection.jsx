@@ -38,25 +38,25 @@ export default function FlashSaleSection() {
     isExpired: false,
   });
 
+  // Live Countdown Timer (Always active: if expired, rolls over to midnight countdown)
   useEffect(() => {
     const calculateTime = () => {
-      if (!flashConfig.active) {
-        setTimeLeft({ hours: 0, minutes: 0, seconds: 0, isExpired: true });
-        return;
+      let target = new Date(flashConfig.endTime).getTime();
+      let diff = target - Date.now();
+
+      // If expired or invalid, set rolling daily countdown to midnight
+      if (isNaN(diff) || diff <= 0) {
+        const midnight = new Date();
+        midnight.setHours(23, 59, 59, 999);
+        diff = midnight.getTime() - Date.now();
+        if (diff <= 0) diff = 86400000;
       }
 
-      const target = new Date(flashConfig.endTime).getTime();
-      const diff = target - Date.now();
-
-      if (diff <= 0) {
-        setTimeLeft({ hours: 0, minutes: 0, seconds: 0, isExpired: true });
-      } else {
-        const totalSeconds = Math.floor(diff / 1000);
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-        setTimeLeft({ hours, minutes, seconds, isExpired: false });
-      }
+      const totalSeconds = Math.floor(diff / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      setTimeLeft({ hours, minutes, seconds, isExpired: false });
     };
 
     calculateTime();
@@ -65,13 +65,9 @@ export default function FlashSaleSection() {
   }, [flashConfig]);
 
   const formatNumber = (num) => String(num).padStart(2, '0');
-  const isFlashActive = flashConfig.active && !timeLeft.isExpired;
-
-  // If no flash sale active, don't show an extra section on mobile to keep it minimal
-  if (!isFlashActive) return null;
 
   return (
-    <section className="py-6 sm:py-8 bg-red-50/50 border-b border-red-100/80">
+    <section id="flash-sale-section" className="py-6 sm:py-8 bg-red-50/40 border-b border-red-100">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Minimal Flash Header with Compact Countdown */}

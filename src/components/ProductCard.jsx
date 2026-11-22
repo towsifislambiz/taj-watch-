@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Zap, Lock } from 'lucide-react';
+import { Zap, Lock, ShoppingCart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function ProductCard({ product }) {
-  const { triggerOneClickOrder } = useCart();
+  const { triggerOneClickOrder, addToCart } = useCart();
 
   const isOutOfStock =
     product.inStock === false ||
@@ -87,7 +87,7 @@ export default function ProductCard({ product }) {
           )}
         </div>
 
-        {/* Minimal Action CTA */}
+        {/* Actions: 1-Click Fast Order + Add to Cart */}
         {isOutOfStock ? (
           <button
             disabled
@@ -97,13 +97,23 @@ export default function ProductCard({ product }) {
             <span>স্টক আউট</span>
           </button>
         ) : (
-          <button
-            onClick={() => triggerOneClickOrder(product)}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] sm:text-xs py-2 sm:py-2.5 rounded-xl uppercase tracking-wider transition-transform active:scale-95 flex items-center justify-center gap-1 shadow-sm cursor-pointer"
-          >
-            <Zap className="w-3 h-3 fill-white" />
-            <span>অর্ডার করুন</span>
-          </button>
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => triggerOneClickOrder(product)}
+              className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold text-[11px] sm:text-xs py-2 sm:py-2.5 rounded-xl uppercase tracking-wider transition-transform active:scale-95 flex items-center justify-center gap-1 shadow-sm cursor-pointer whitespace-nowrap"
+            >
+              <Zap className="w-3.5 h-3.5 fill-white shrink-0" />
+              <span>অর্ডার করুন</span>
+            </button>
+            <button
+              onClick={() => addToCart(product, 1)}
+              className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 bg-gray-100 hover:bg-amber-400 hover:text-black text-gray-700 rounded-xl transition-all flex items-center justify-center border border-gray-200 active:scale-95 cursor-pointer"
+              title="কার্টে যোগ করুন"
+              aria-label="Add to cart"
+            >
+              <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            </button>
+          </div>
         )}
       </div>
     </div>

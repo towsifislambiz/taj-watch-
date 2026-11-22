@@ -49,8 +49,8 @@ export default function HeroSlider() {
   const slide = HERO_SLIDES[current];
 
   return (
-    <section className="relative bg-[#0d111a] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5">
+    <section className="relative bg-[#FAFAFA] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-black min-h-[300px] sm:min-h-[380px] lg:min-h-[420px] flex items-center shadow-md">
           
           {/* Background Watch Photo */}
