@@ -47,7 +47,7 @@ function AppContent({ searchQuery, setSearchQuery, activeCategory, setActiveCate
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-brand-gold selection:text-black flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAF7F5] text-slate-900 font-sans selection:bg-brand-gold selection:text-black flex flex-col justify-between overflow-x-hidden">
       {/* Top Navigation & Brand Header */}
       <div className="w-full">
         <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />

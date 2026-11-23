@@ -20,7 +20,7 @@ export default function CustomerReviews() {
   const displayReviews = reviewsList.slice(0, 3);
 
   return (
-    <section className="py-8 sm:py-12 bg-white border-t border-gray-100">
+    <section id="customer-reviews-section" className="py-8 sm:py-12 bg-[#FAF7F5] border-t border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Minimal Section Header */}
@@ -38,7 +38,7 @@ export default function CustomerReviews() {
           {displayReviews.map((rev, idx) => (
             <div
               key={rev.id || idx}
-              className="p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200/80 flex flex-col justify-between space-y-3"
+              className="p-4 sm:p-5 rounded-2xl bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-3"
             >
               <div>
                 {/* 5 Stars */}

@@ -80,13 +80,13 @@ export default function FlashSaleSection() {
   }, [products]);
 
   return (
-    <section id="flash-sale-section" className="py-6 sm:py-8 bg-red-50/40 border-b border-red-100">
+    <section id="flash-sale-section" className="py-6 sm:py-8 bg-[#FAF7F5] border-b border-gray-200/60">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Minimal Flash Header with Compact Countdown */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-red-100 gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 mb-4 border-b border-gray-200/70 gap-2">
           <div className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0">
+            <span className="w-7 h-7 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0 shadow-xs">
               <Flame className="w-4 h-4 fill-white" />
             </span>
             <div>

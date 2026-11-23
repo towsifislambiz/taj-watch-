@@ -9,14 +9,17 @@ export default function HomePage({ searchQuery, setSearchQuery }) {
   const [activeCategory, setActiveCategory] = useState('all');
 
   return (
-    <div className="bg-[#FAFAFA] min-h-screen">
+    <div className="bg-[#FAF7F5] min-h-screen">
       {/* 1. Clean Minimal Hero */}
       <HeroSlider />
 
-      {/* 2. Quick Horizontal Category Filter */}
-      <CategoryBanners onSelectCategory={(catId) => setActiveCategory(catId)} />
+      {/* 2. Quick Horizontal Category Filter Strip */}
+      <CategoryBanners
+        activeCategory={activeCategory}
+        onSelectCategory={(catId) => setActiveCategory(catId)}
+      />
 
-      {/* 3. Flash Sale Section (if active) */}
+      {/* 3. Flash Sale Section */}
       <FlashSaleSection />
 
       {/* 4. Luxury Watch Catalog (Grid) */}

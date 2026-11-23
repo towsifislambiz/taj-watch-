@@ -138,7 +138,7 @@ export default function ProductDetailsPage() {
     .slice(0, 4);
 
   return (
-    <div className="py-6 sm:py-10 bg-[#FAFAFA] min-h-screen">
+    <div className="py-6 sm:py-10 bg-[#FAF7F5] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Minimal Breadcrumb */}

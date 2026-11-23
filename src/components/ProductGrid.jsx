@@ -91,11 +91,11 @@ export default function ProductGrid({ activeCategory, setActiveCategory, searchQ
   };
 
   return (
-    <section id="all-products-section" className="py-12 bg-[#F8FAFC]">
+    <section id="all-products-section" className="py-10 sm:py-12 bg-[#FAF7F5]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Minimal Section Title */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 pb-3 border-b border-gray-200 gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 pb-3.5 border-b border-gray-200/70 gap-2">
           <div>
             <h2 className="text-lg sm:text-2xl font-black text-gray-950 tracking-tight">
               সকল ঘড়ির কালেকশন

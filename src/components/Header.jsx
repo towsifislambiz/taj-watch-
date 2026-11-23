@@ -43,7 +43,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
   return (
     <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-200 shadow-sm">
       {/* 1. Top Minimal Ribbon */}
-      <div className="bg-gray-50 border-b border-gray-100 py-1 px-3 sm:px-4 text-[10px] sm:text-xs">
+      <div className="bg-[#FAF7F5] border-b border-gray-200/60 py-1 px-3 sm:px-4 text-[10px] sm:text-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-gray-700">
           <div className="flex items-center gap-2">
             <span className="flex items-center gap-1 font-semibold text-gray-900">

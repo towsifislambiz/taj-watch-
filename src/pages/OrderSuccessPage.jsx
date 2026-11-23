@@ -34,12 +34,11 @@ export default function OrderSuccessPage() {
   );
 
   return (
-    <div className="py-12 bg-[#F8FAFC] min-h-[80vh] flex items-center justify-center">
+    <div className="py-12 bg-[#FAF7F5] min-h-[80vh] flex items-center justify-center">
       <div className="max-w-2xl w-full mx-4 bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-xl text-center space-y-6">
         
         {/* Success Icon */}
         <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
-          <div className="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping" />
           <div className="w-20 h-20 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-600 flex items-center justify-center shadow-md">
             <CheckCircle2 className="w-10 h-10" />
           </div>

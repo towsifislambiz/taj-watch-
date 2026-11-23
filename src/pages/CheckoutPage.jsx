@@ -29,7 +29,7 @@ export default function CheckoutPage() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-[70vh] flex items-center justify-center bg-[#F8FAFC] p-4">
+      <div className="min-h-[70vh] flex items-center justify-center bg-[#FAF7F5] p-4">
         <div className="text-center max-w-md bg-white border border-gray-200 p-8 rounded-3xl shadow-sm space-y-4">
           <p className="text-base text-gray-900 font-bold">আপনার কার্ট খালি আছে</p>
           <p className="text-xs text-gray-500">অর্ডার করার পূর্বে ঘড়ি নির্বাচন করে কার্টে যোগ করুন।</p>
@@ -103,7 +103,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="py-10 bg-[#F8FAFC] min-h-screen">
+    <div className="py-10 bg-[#FAF7F5] min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="mb-6">
